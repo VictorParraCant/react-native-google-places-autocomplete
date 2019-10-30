@@ -284,6 +284,7 @@ export default class GooglePlacesAutocomplete extends Component {
         key: this.props.query.key,
         placeid: rowData.place_id,
         language: this.props.query.language,
+        fields: this.props.autocompleteFields,
         ...this.props.GooglePlacesDetailsQuery,
       }));
 
@@ -782,7 +783,8 @@ GooglePlacesAutocomplete.propTypes = {
   suppressDefaultStyles: PropTypes.bool,
   numberOfLines: PropTypes.number,
   onSubmitEditing: PropTypes.func,
-  editable: PropTypes.bool
+  editable: PropTypes.bool,
+  autocompleteFields: PropTypes.string
 }
 GooglePlacesAutocomplete.defaultProps = {
   placeholder: 'Search',
@@ -830,7 +832,8 @@ GooglePlacesAutocomplete.defaultProps = {
   suppressDefaultStyles: false,
   numberOfLines: 1,
   onSubmitEditing: () => {},
-  editable: true
+  editable: true,
+  autocompleteFields: 'geometry,type',
 }
 
 // this function is still present in the library to be retrocompatible with version < 1.1.0
