@@ -817,7 +817,7 @@ GooglePlacesAutocomplete.defaultProps = {
   },
   styles: {},
   textInputProps: {},
-  enablePoweredByContainer: true,
+  enablePoweredByContainer: false,
   predefinedPlaces: [],
   currentLocation: false,
   currentLocationLabel: 'Current location',
