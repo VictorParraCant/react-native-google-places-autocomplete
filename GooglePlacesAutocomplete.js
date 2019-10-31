@@ -126,19 +126,18 @@ export default class GooglePlacesAutocomplete extends Component {
     this._isMounted = true;
   }
 
-  componentDidUpdate() {
-    const { text } = this.props;
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let listViewDisplayed = true;
 
-    if (this.props.listViewDisplayed !== 'auto') {
-      listViewDisplayed = this.props.listViewDisplayed;
+    if (nextProps.listViewDisplayed !== 'auto') {
+      listViewDisplayed = nextProps.listViewDisplayed;
     }
 
-    if (typeof (text) !== "undefined" && this.state.text !== text) {
+    if (typeof (nextProps.text) !== "undefined" && this.state.text !== nextProps.text) {
       this.setState({
           listViewDisplayed: listViewDisplayed
         },
-        this._handleChangeText(text));
+        this._handleChangeText(nextProps.text));
     } else {
       this.setState({
         listViewDisplayed: listViewDisplayed
